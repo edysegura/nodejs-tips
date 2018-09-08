@@ -1,17 +1,15 @@
 function heavyOperation(operationTimes) {
   let result = 0
-  let max = parseInt(operationTimes)
-  let operations = max
+  let opTimes = parseInt(operationTimes)
 
-  while (operations--) {
+  while (opTimes--) {
     result += Math.random()
-    if(operations % (max/10) === 0) {
-      process.send(`${operations} operations complete!`)
-    }
   }
+
   return result
 }
 
 process.on('message', data => {
-  heavyOperation(data)
+  let result = heavyOperation(data)
+  process.send(result)
 })
