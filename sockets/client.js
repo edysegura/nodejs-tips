@@ -1,18 +1,21 @@
 const net = require('net')
 const readline = require('readline')
 
+const port = 4000
+const address = '127.0.0.1'
 const client = new net.Socket()
-const rl = readline.createInterface({
+
+const readInterface = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
 
 client.connect(
-  4000,
-  '127.0.0.1',
+  port,
+  address,
   () => {
     console.log('Connected')
-    rl.addListener('line', line => {
+    readInterface.addListener('line', line => {
       client.write(line)
     })
   }
