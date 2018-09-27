@@ -10,13 +10,13 @@ const readInterface = readline.createInterface({
   output: process.stdout
 })
 
+function communicationHandler() {
+  console.log('Connected')
+  readInterface.addListener('line', line => client.write(line))
+}
+
 client.connect(
   port,
   address,
-  () => {
-    console.log('Connected')
-    readInterface.addListener('line', line => {
-      client.write(line)
-    })
-  }
+  communicationHandler
 )
