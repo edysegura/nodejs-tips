@@ -17,8 +17,8 @@ const processLine = line => {
   }
 }
 
-function communicationHandler() {
-  console.log('Connected')
+const communicationHandler = () => {
+  console.log('Connected!')
   readInterface.addListener('line', processLine)
 }
 
