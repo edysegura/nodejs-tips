@@ -13,7 +13,7 @@ const handleDataStream = socket => data => {
 
 const handleConnection = socket => {
   console.log('Someone just connected!')
-  socket.on('end', () => console.log('Desconnected'))
+  socket.on('end', () => console.log('Disconnected!'))
   socket.on('data', handleDataStream(socket))
 }
 
