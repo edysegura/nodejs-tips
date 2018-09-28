@@ -10,9 +10,16 @@ const readInterface = readline.createInterface({
   output: process.stdout
 })
 
+const processLine = line => {
+  client.write(line)
+  if (line === 'xispa') {
+    setTimeout(process.exit, 10)
+  }
+}
+
 function communicationHandler() {
   console.log('Connected')
-  readInterface.addListener('line', line => client.write(line))
+  readInterface.addListener('line', processLine)
 }
 
 client.connect(
