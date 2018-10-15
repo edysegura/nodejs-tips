@@ -13,7 +13,9 @@ const readInterface = readline.createInterface({
 const processLine = line => {
   client.write(line)
   if (line === 'xispa') {
-    setTimeout(process.exit, 10)
+    // Promise.resolve().then(process.exit)
+    // process.nextTick(process.exit)
+    setTimeout(process.exit, 5)
   }
 }
 
