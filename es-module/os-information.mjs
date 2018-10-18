@@ -8,7 +8,7 @@ export class OperationSystemInfo {
       `CPU Architecutre: ${os.arch()}`,
       `CPUs: ${os.cpus().length}`,
       `Hostmanme: ${os.hostname()}`,
-      `User Info: ${os.userInfo()}`
+      `User Info: ${JSON.stringify(os.userInfo(), null, 2)}`
     ]
   }
 
