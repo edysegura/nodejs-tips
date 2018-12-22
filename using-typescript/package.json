@@ -2,12 +2,11 @@
   "name": "using-typescript",
   "private": true,
   "scripts": {
-    "start": "tsc & nodemon dist"
+    "start": "tsc & node dist"
   },
   "author": "Edy Segura",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^1.18.9",
     "typescript": "^3.2.2"
   }
 }
