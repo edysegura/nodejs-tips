@@ -1,6 +1,4 @@
-function greeter(personName: string) {
-  return `Hello ${personName}!`;
-}
+import { Person } from './person'
 
-const personName = "Davi B Segura";
-console.log(greeter(personName));
+const person = new Person('Davi B. Segura')
+console.log(`${person.id} - ${person.name}`)
