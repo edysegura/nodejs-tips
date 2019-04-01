@@ -2,7 +2,7 @@
   "name": "using-typescript",
   "private": true,
   "scripts": {
-    "start": "tsc & node dist"
+    "start": "ts-node src/index"
   },
   "author": "Edy Segura",
   "license": "MIT",
