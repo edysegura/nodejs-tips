@@ -1,13 +1,16 @@
+import * as uuid from 'uuid/v4'
+
 export class Person {
-  private id_: number
   name: string
 
+  private readonly generatedId: number
+
   constructor(name: string) {
-    this.id_ = Date.now()
+    this.generatedId = uuid()
     this.name = name
   }
 
   get id(): number {
-    return this.id_
+    return this.generatedId
   }
 }
