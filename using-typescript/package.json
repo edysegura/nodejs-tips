@@ -2,7 +2,8 @@
   "name": "using-typescript",
   "private": true,
   "scripts": {
-    "start": "ts-node src/index"
+    "start": "ts-node src/index",
+    "build": "tsc -p tsconfig.json"
   },
   "author": "Edy Segura",
   "license": "MIT",
