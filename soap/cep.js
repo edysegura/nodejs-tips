@@ -17,10 +17,10 @@ const xmlEnvelop = `
 
 const headersValues = {
   'Content-Type': 'text/xml;charset=UTF-8',
-  'soapAction': '',
+  'SOAPAction': '',
+  'Content-Length': xmlEnvelop.length
 };
 
-// usage of module
 (async () => {
   const { response } = await soapRequest({
     url: wsdlLocation,
@@ -28,16 +28,14 @@ const headersValues = {
     xml: xmlEnvelop
   });
 
-  const { headers, body, statusCode } = response;
+  const { body } = response;
   const $ = cheerio.load(body);
 
   const data = converter.xml2js(
-    `<result>${$('return').html()}</result>`,
+    `<return>${ $('return').html() }</return>`,
     { compact: true }
   );
 
-  // console.log(headers);
-  // console.log(statusCode);
-  console.log(data.result.cidade._text, data.result.uf._text);
+  console.log(data.return.cidade._text, data.return.uf._text);
   // console.log(JSON.stringify(data, null, 2));
 })();
