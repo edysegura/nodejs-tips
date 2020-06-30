@@ -1,9 +1,9 @@
-const bcrypt = require('bcryptjs')
+import bcryptjs from 'bcryptjs'
 
 async function main() {
   const salt = 8
-  const hash = await bcrypt.hash('batatinha', salt)
-  console.log('Hash: ', hash)
+  const generatedHash = await bcryptjs.hash('batatinha', salt)
+  console.log('Hash: ', generatedHash)
 }
 
 main()
