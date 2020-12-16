@@ -5,9 +5,9 @@ export class OperationSystemInfo {
     this.infoList = [
       `Platform: ${os.platform()}`,
       `Release: ${os.release()}`,
-      `CPU Architecutre: ${os.arch()}`,
+      `CPU Architecture: ${os.arch()}`,
       `CPUs: ${os.cpus().length}`,
-      `Hostmanme: ${os.hostname()}`,
+      `Hostname: ${os.hostname()}`,
       `User Info: ${JSON.stringify(os.userInfo(), null, 2)}`
     ]
   }
