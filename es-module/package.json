@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node --experimental-modules --es-module-specifier-resolution=node ./index.js"
+    "start": "node ./index.js"
   }
 }
