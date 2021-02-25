@@ -1,6 +1,11 @@
 {
   "private": "true",
   "type": "module",
+  "scripts": {
+    "log:1": "DEBUG=log:one node index",
+    "log:2": "DEBUG=log:two node index",
+    "log:all": "DEBUG=log:* node index"
+  },
   "dependencies": {
     "debug": "^4.3.1"
   }
