@@ -1,5 +1,6 @@
 import debug from 'debug'
 
+// take a look at package.json NPM scripts to check how it works
 const log1 = debug('log:one')
 const log2 = debug('log:two')
 
