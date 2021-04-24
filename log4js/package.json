@@ -1,0 +1,7 @@
+{
+  "private": "true",
+  "type": "module",
+  "dependencies": {
+    "log4js": "^6.3.0"
+  }
+}
