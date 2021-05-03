@@ -2,11 +2,11 @@ import log4js from 'log4js'
 
 log4js.configure({
   appenders: {
-    file: { type: 'file', filename: 'events.log' },
-    console: { type: 'console' }
+    fileAppender: { type: 'file', filename: 'events.log' },
+    consoleAppender: { type: 'console' }
   },
   categories: {
-    default: { appenders: [ 'file', 'console' ], level: 'info' }
+    default: { appenders: [ 'fileAppender', 'consoleAppender' ], level: 'trace' }
   }
 })
 
