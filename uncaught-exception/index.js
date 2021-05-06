@@ -11,5 +11,14 @@ process.on('uncaughtException', (error) => {
   process.exit(1)
 })
 
-x.y
 
+function asyncAction() {
+  return new Promise((_, reject) => {
+    reject('Error from promise')
+  })
+}
+
+
+// x.y
+
+asyncAction()
