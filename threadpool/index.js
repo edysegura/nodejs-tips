@@ -7,7 +7,7 @@ console.log('CPUs: ', os.cpus().length)
 console.log('Thread Pool: ', process.env.UV_THREADPOOL_SIZE)
 
 function generateHash(id) {
-  crypto.pbkdf2(String(id), 'salt', 100000, 32, 'sha512', (error, derivedKey) => {
+  crypto.pbkdf2(String(id), 'salt', 100000, 32, 'sha512', (_, derivedKey) => {
     console.log(id, derivedKey.toString('hex'))
   })
 }
