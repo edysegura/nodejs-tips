@@ -1,13 +1,17 @@
 import { parentPort } from 'worker_threads'
 
 parentPort.on('message', data => {
-  const result = {
+  const message = buildMessage(data)
+  parentPort.postMessage(message)
+})
+
+function buildMessage(data) {
+  const message = {
     number: data.number,
     fibonacci: fibonacci(data.number)
   }
-  parentPort.postMessage(result)
-  console.log('Executed in the child thread')
-})
+  return message
+}
 
 function fibonacci(number) {
   if (number <= 1) {
@@ -15,3 +19,5 @@ function fibonacci(number) {
   }
   return fibonacci(number - 1) + fibonacci(number - 2)
 }
+
+console.log('Worker instantiated!')
