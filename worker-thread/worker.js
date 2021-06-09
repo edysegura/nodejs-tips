@@ -1,4 +1,4 @@
-const { parentPort } = require('worker_threads')
+import { parentPort } from 'worker_threads'
 
 parentPort.on('message', data => {
   const result = {
