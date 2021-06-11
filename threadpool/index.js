@@ -1,14 +1,14 @@
+// process.env.UV_THREADPOOL_SIZE = 1
+
 import os from 'os'
 import crypto from 'crypto'
-
-process.env.UV_THREADPOOL_SIZE = 2
 
 console.log('CPUs: ', os.cpus().length)
 console.log('Thread Pool: ', process.env.UV_THREADPOOL_SIZE)
 
 function generateHash(id) {
-  crypto.pbkdf2(String(id), 'salt', 100000, 32, 'sha512', (_, derivedKey) => {
-    console.log(id, derivedKey.toString('hex'))
+  crypto.pbkdf2(String(id), 'salt', 100000, 512, 'sha512', (_, derivedKey) => {
+    console.log(id, derivedKey.toString('hex').substring(0,32))
   })
 }
 
