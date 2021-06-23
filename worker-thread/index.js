@@ -16,6 +16,7 @@ worker.on('exit', exitCode => {
 
 worker.postMessage({ number: 40 })
 worker.postMessage({ number: 21 })
+worker.postMessage({ number: 42 })
 worker.postMessage(null)
 
 console.log('Executed in the parent thread')
