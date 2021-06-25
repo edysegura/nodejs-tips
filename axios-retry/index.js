@@ -14,6 +14,7 @@ axiosRetry(axios, {
 
 try {
   const response = await axios.get('https://httpstat.us/503')
+  console.log(response.data)
 } catch (error) {
   console.log(error.message)
 }
