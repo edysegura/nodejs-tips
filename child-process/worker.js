@@ -9,7 +9,7 @@ function heavyOperation(operationTimes) {
   return result
 }
 
-process.on('message', data => {
+process.on('message', (data) => {
   let result = heavyOperation(data)
   process.send(result)
 })

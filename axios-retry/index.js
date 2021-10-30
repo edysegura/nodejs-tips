@@ -9,7 +9,7 @@ axiosRetry(axios, {
   },
   retryCondition: (error) => {
     return error.response.status === 503
-  }
+  },
 })
 
 try {
