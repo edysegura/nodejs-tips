@@ -2,15 +2,15 @@ import { Worker } from 'worker_threads'
 
 const worker = new Worker('./worker.js')
 
-worker.on('message', data => {
+worker.on('message', (data) => {
   console.log(`${data.number}th fibonacci number is ${data.fibonacci}`)
 })
 
-worker.on('error', error => {
+worker.on('error', (error) => {
   console.error('Something went wrong!', error.message)
 })
 
-worker.on('exit', exitCode => {
+worker.on('exit', (exitCode) => {
   console.log('Exit code: ', exitCode)
 })
 
