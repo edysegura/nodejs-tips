@@ -1,6 +1,6 @@
 import { Worker } from 'worker_threads'
 
-const worker = new Worker('./worker.js')
+const worker = new Worker('./worker.mjs')
 
 worker.on('message', (data) => {
   console.log(`${data.number}th fibonacci number is ${data.fibonacci}`)
