@@ -1,6 +1,6 @@
-process.on('unhandledRejection', (reason, promise) => {
+process.on('unhandledRejection', (reason) => {
   console.log(
-    `App exiting due to an unhandled promise: ${promise} and reason: ${reason}`,
+    `App exiting due to an unhandled promise, reason: ${reason}`,
   )
   // lets throw the error and let the uncaughtException handle below handle it
   throw reason
