@@ -20,4 +20,4 @@ const handleConnection = socket => {
 net.createServer(handleConnection)
   .listen(port, address)
 
-console.log(`Server socket listiner at ${address}:${port}`)
+console.log(`Server socket listener at ${address}:${port}`)
