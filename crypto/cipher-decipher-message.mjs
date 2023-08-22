@@ -1,33 +1,36 @@
 import crypto from 'crypto'
 
-const algorithm = 'aes-256-cbc'
+const algorithm = 'aes-256-gcm'
 
-// generate 16 bytes of random data
-const initVector = crypto.randomBytes(16)
+// generate a secure random key
+const key = crypto.randomBytes(32)
+
+// generate a secure random initialization vector
+const iv = crypto.randomBytes(16)
 
 // protected data
 const message = 'This is a secret message'
 
-// secret key generate 32 bytes of random data
-const secretKey = crypto.randomBytes(32)
-
 // the cipher function
-const cipher = crypto.createCipheriv(algorithm, secretKey, initVector)
+const cipher = crypto.createCipheriv(algorithm, key, iv)
 
 // encrypt the message
-// input encoding
-// output encoding
-let encryptedData = cipher.update(message, 'utf-8', 'hex')
-
+let encryptedData = cipher.update(message, 'utf8', 'hex')
 encryptedData += cipher.final('hex')
 
+// generate an authentication tag
+const tag = cipher.getAuthTag()
+
 console.log('Encrypted message: ' + encryptedData)
+console.log('Authentication tag: ' + tag.toString('hex'))
 
 // the decipher function
-const decipher = crypto.createDecipheriv(algorithm, secretKey, initVector)
+const decipher = crypto.createDecipheriv(algorithm, key, iv)
 
-let decryptedData = decipher.update(encryptedData, 'hex', 'utf-8')
+// set the authentication tag
+decipher.setAuthTag(tag)
 
+let decryptedData = decipher.update(encryptedData, 'hex', 'utf8')
 decryptedData += decipher.final('utf8')
 
 console.log('Decrypted message: ' + decryptedData)
