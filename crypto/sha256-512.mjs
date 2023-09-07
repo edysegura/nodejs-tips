@@ -1,4 +1,4 @@
-import crypto from 'crypto'
+import crypto from 'crypto' // dropped on node v14.17.0
 
 // Password-Based Key Derivation Function 2
 crypto.pbkdf2('secret', 'salt', 100000, 32, 'sha512', (error, derivedKey) => {
