@@ -1,4 +1,4 @@
-import { createHash } from 'crypto'
+import { createHash } from 'crypto' // dropped on node v14.17.0
 
 // prettier-ignore
 const md5hash = createHash('md5')
