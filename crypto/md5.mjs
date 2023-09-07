@@ -1,6 +1,7 @@
-import crypto from 'crypto'
+import { createHash } from 'crypto'
 
-const md5hash = crypto.createHash('md5')
+// prettier-ignore
+const md5hash = createHash('md5')
     .update('123deoliveira4')
     .digest('hex')
 
