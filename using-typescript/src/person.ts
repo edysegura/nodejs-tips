@@ -1,4 +1,4 @@
-import * as uuid from 'uuid/v4'
+import { randomUUID as uuid } from 'crypto'
 
 export class Person {
   name: string
