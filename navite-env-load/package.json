@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "dev": "node --watch --env-file=.env.local index.mjs"
+  }
+}
