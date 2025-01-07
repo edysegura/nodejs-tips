@@ -2,7 +2,7 @@
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 
-const server = createServer(async (req, res) => {
+const server = createServer(async (_, res) => {
   try {
     const data = await readFile('./index.html', 'utf8')
     res.writeHead(200, { 'Content-Type': 'text/html' })
