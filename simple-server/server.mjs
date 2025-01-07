@@ -4,14 +4,14 @@ import { readFile } from 'node:fs/promises'
 
 const PORT = 3000
 
-const server = createServer(async (_, res) => {
+const server = createServer(async (_, response) => {
   try {
     const data = await readFile('./index.html', 'utf8')
-    res.writeHead(200, { 'Content-Type': 'text/html' })
-    res.end(data)
+    response.writeHead(200, { 'Content-Type': 'text/html' })
+    response.end(data)
   } catch (err) {
-    res.writeHead(500, { 'Content-Type': 'text/plain' })
-    res.end('Internal Server Error\n')
+    response.writeHead(500, { 'Content-Type': 'text/plain' })
+    response.end('Internal Server Error\n')
   }
 })
 
