@@ -1,4 +1,6 @@
-// server.mjs
+// supported since Node.js v14+
+// run with `node server.mjs`
+
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 
@@ -19,6 +21,3 @@ const server = createServer(async (_, response) => {
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
 })
-
-// supported since Node.js v14+
-// run with `node server.mjs`
