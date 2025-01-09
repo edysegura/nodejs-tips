@@ -1,14 +1,14 @@
 function* getUsers() {
   while (true) {
     yield {
-      user: crypto.randomUUID(),
+      id: crypto.randomUUID(),
       name: `fake name ${crypto.randomUUID()}`,
     }
   }
 }
 
 const results = getUsers()
-  .take(1)
+  .take(10)
   .map((user) => ({
     ...user,
     isActive: false,
