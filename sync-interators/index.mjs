@@ -8,7 +8,7 @@ function* getUsers() {
 }
 
 getUsers()
-  .take(10)
+  .take(10) // this is supported since Node.js v22+
   .map((user) => ({
     ...user,
     isActive: false,
