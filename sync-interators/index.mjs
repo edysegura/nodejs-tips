@@ -7,12 +7,10 @@ function* getUsers() {
   }
 }
 
-const results = getUsers()
+getUsers()
   .take(10)
   .map((user) => ({
     ...user,
     isActive: false,
   }))
   .forEach((user) => console.log(`insert user ${user.id} to the database`))
-
-console.table(results)
