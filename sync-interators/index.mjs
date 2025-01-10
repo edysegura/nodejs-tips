@@ -1,8 +1,14 @@
+async function generateName() {
+  const response = await fetch('https://randomuser.me/api/')
+  const json = await response.json()
+  return `${json.results[0].name.first} ${json.results[0].name.last}`
+}
+
 function* getUsers() {
   while (true) {
     yield {
       id: crypto.randomUUID(),
-      name: `fake name ${crypto.randomUUID()}`,
+      name: `John Doe`, // fix: use the generated name here
     }
   }
 }
@@ -13,4 +19,6 @@ getUsers()
     ...user,
     isActive: false,
   }))
-  .forEach((user) => console.log(`insert user ${user.id} to the database`))
+  .forEach((user) =>
+    console.log(`insert user [${user.id}] ${user.name} to the database`),
+  )
