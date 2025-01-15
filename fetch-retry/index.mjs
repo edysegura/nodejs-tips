@@ -1,4 +1,4 @@
-const url = 'https://httpbin.org/uui'
+const url = 'https://httpbin.org/uuid'
 const maxRetries = 3
 
 async function fetchWithRetry(url, retries) {
@@ -8,8 +8,7 @@ async function fetchWithRetry(url, retries) {
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`)
       }
-      const data = await response.json()
-      return data
+      return response.json()
     } catch (error) {
       console.error(`Attempt ${i + 1} failed: ${error.message}`)
       if (i === retries - 1) {
@@ -22,3 +21,11 @@ async function fetchWithRetry(url, retries) {
 fetchWithRetry(url, maxRetries)
   .then((data) => console.log('Success:', data))
   .catch((error) => console.error('Error:', error.message))
+
+// fetchWithRetry('https://http.cat/404', maxRetries)
+//   .then((data) => console.log('Success:', data))
+//   .catch((error) => console.error('Error:', error.message))
+
+// fetchWithRetry('https://http.cat/500', maxRetries)
+//   .then((data) => console.log('Success:', data))
+//   .catch((error) => console.error('Error:', error.message))
