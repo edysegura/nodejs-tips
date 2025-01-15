@@ -1,5 +1,6 @@
 // Node.js 22.6+: You can now run TypeScript directly (experimental)
 // node --experimental-strip-types example.ts
+// Node.js 23 doesn't require the flag above
 
 type User = {
   name: string
