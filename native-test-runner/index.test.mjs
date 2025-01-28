@@ -1,9 +1,12 @@
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
+import { sum } from './index.mjs'
 
-describe('Test suite', () => {
-  it('that 1 is equal 1', () => {
-    assert.strictEqual(1, 1)
+describe('Sum suite', () => {
+  it('should sum two numbers', () => {
+    const numberA = 1
+    const numberB = 2
+    assert.strictEqual(sum(numberA, numberB), 3)
   })
 })
 
