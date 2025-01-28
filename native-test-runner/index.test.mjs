@@ -9,3 +9,4 @@ describe('Test suite', () => {
 
 // run with `node --test` or `node --test --watch`
 // run with `node index.test.mjs` or `node index.test.mjs --watch`
+// https://www.youtube.com/watch?v=5UC8NobtuoM
