@@ -8,7 +8,7 @@ axiosRetry(axios, {
     return retryCount * 2000
   },
   retryCondition: (error) => {
-    return error.response.status === 503
+    return error.response.status === 404
   },
 })
 
