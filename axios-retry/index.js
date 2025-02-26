@@ -8,12 +8,13 @@ axiosRetry(axios, {
     return retryCount * 2000
   },
   retryCondition: (error) => {
-    return error.response.status === 404
+    // HTTP status code is 408 (Request Timeout)
+    return error.response.status === 408
   },
 })
 
 try {
-  const response = await axios.get('https://httpstat.us/404')
+  const response = await axios.get('https://httpstat.us/408')
   console.log(response.data)
 } catch (error) {
   console.log(error.message)
