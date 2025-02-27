@@ -1,24 +1,23 @@
-const url = 'https://httpbin.org/uuid'
-const maxRetries = 3
-
-async function fetchWithRetry(url, retries) {
-  for (let i = 0; i < retries; i++) {
+async function fetchWithRetry(url, maxAttempts) {
+  for (let i = 0; i < maxAttempts; i++) {
     try {
       const response = await fetch(url)
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`)
+        throw new Error(
+          `Request failed with status ${response.status} - ${response.statusText}`,
+        )
       }
       return response.json()
     } catch (error) {
       console.error(`Attempt ${i + 1} failed: ${error.message}`)
-      if (i === retries - 1) {
+      if (i === maxAttempts - 1) {
         throw new Error('Max retries reached')
       }
     }
   }
 }
 
-fetchWithRetry(url, maxRetries)
+fetchWithRetry('https://httpstat.us/408', 3)
   .then((data) => console.log('Success:', data))
   .catch((error) => console.error('Error:', error.message))
 
