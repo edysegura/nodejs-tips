@@ -1,4 +1,4 @@
-async function fetchWithRetry(url, maxAttempts) {
+async function fetchWithRetry({ url, maxAttempts = 3 }) {
   for (let i = 0; i < maxAttempts; i++) {
     try {
       const response = await fetch(url)
@@ -17,7 +17,7 @@ async function fetchWithRetry(url, maxAttempts) {
   }
 }
 
-fetchWithRetry('https://httpstat.us/408', 3)
+fetchWithRetry({ url: 'https://httpstat.us/408', maxAttempts: 3 })
   .then((data) => console.log('Success:', data))
   .catch((error) => console.error('Error:', error.message))
 
