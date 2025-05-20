@@ -6,8 +6,8 @@ const storage = new AsyncLocalStorage()
 // Example async function that uses the storage
 async function processRequest(requestId, userData) {
   return storage.run({ requestId, userData }, async () => {
-    await step1()
-    await step2()
+    step1()
+    step2()
     return 'Processing complete'
   })
 }
@@ -16,7 +16,7 @@ async function processRequest(requestId, userData) {
 async function step1() {
   const context = storage.getStore()
   console.log('Step 1:', context)
-  await new Promise((resolve) => setTimeout(resolve, 100))
+  await new Promise((resolve) => setTimeout(resolve, 200))
 }
 
 async function step2() {
