@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto' // Added in: node v14.17.0
+import { randomUUID } from 'node:crypto' // Added in: node v14.17.0
 
 // prettier-ignore
 [
