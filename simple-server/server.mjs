@@ -12,8 +12,8 @@ const server = createServer(async (_, response) => {
     response.writeHead(200, { 'Content-Type': 'text/html' })
     response.end(data)
   } catch (err) {
-    response.writeHead(500, { 'Content-Type': 'text/plain' })
-    response.end('Internal Server Error\n')
+    response.writeHead(404, { 'Content-Type': 'text/plain' })
+    response.end('Not found\n')
   }
 })
 
