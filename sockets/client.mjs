@@ -1,5 +1,5 @@
-import { Socket } from 'net'
-import { createInterface } from 'readline'
+import { Socket } from 'node:net'
+import { createInterface } from 'node:readline'
 
 const port = 4000
 const address = '127.0.0.1'

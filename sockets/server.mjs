@@ -1,4 +1,4 @@
-import { createServer } from 'net'
+import { createServer } from 'node:net'
 
 const port = 4000
 const address = '127.0.0.1'
