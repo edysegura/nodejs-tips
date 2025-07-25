@@ -1,9 +1,9 @@
-const net = require('net')
+import { createServer } from 'net'
 
 const port = 4000
 const address = '127.0.0.1'
 
-const handleDataStream = socket => data => {
+const handleDataStream = (socket) => (data) => {
   const text = String(data)
   if (text === 'xispa') {
     socket.end()
@@ -11,13 +11,12 @@ const handleDataStream = socket => data => {
   console.log(text)
 }
 
-const handleConnection = socket => {
+const handleConnection = (socket) => {
   console.log('Someone just connected!')
   socket.on('end', () => console.log('Disconnected!'))
   socket.on('data', handleDataStream(socket))
 }
 
-net.createServer(handleConnection)
-  .listen(port, address)
+createServer(handleConnection).listen(port, address)
 
 console.log(`Server socket listener at ${address}:${port}`)

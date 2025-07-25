@@ -1,16 +1,16 @@
-const net = require('net')
-const readline = require('readline')
+import { Socket } from 'net'
+import { createInterface } from 'readline'
 
 const port = 4000
 const address = '127.0.0.1'
-const client = new net.Socket()
+const client = new Socket()
 
-const readInterface = readline.createInterface({
+const readInterface = createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 })
 
-const processLine = line => {
+const processLine = (line) => {
   client.write(line)
   if (line === 'xispa') {
     // Promise.resolve().then(process.exit)
@@ -24,8 +24,4 @@ const communicationHandler = () => {
   readInterface.addListener('line', processLine)
 }
 
-client.connect(
-  port,
-  address,
-  communicationHandler
-)
+client.connect(port, address, communicationHandler)
