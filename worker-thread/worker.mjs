@@ -1,6 +1,6 @@
-import { parentPort } from 'worker_threads'
+import { parentPort } from 'node:worker_threads'
 
-parentPort.on('message', data => {
+parentPort.on('message', (data) => {
   const message = buildMessage(data)
   parentPort.postMessage(message)
 })
@@ -8,7 +8,7 @@ parentPort.on('message', data => {
 function buildMessage(data) {
   const message = {
     number: data.number,
-    fibonacci: fibonacci(data.number)
+    fibonacci: fibonacci(data.number),
   }
   return message
 }
